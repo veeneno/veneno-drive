@@ -12,7 +12,7 @@ const tokens = config.tokens;
 const clientId = config.clientId;
 const guildId = config.guildId;
 const progressChannelId = config.progressChannelId;
-const CHUNK_SIZE = config.CHUNK_SIZE * 1024 * 1024; // 24 MB
+const CHUNK_SIZE = config.CHUNK_SIZE * 1024 * 1024; 
 const MAX_RAM_USAGE = config.MAX_RAM_USAGE * 1024 * 1024 * 1024;
 const embedColors = config.embedColors;
 
@@ -49,12 +49,10 @@ const showInfoEmbed = async (channel, interaction) => {
     const infoContent = fs.readFileSync(infoFilePath, 'utf8');
     const lines = infoContent.split('\n');
 
-    // Formatação dos campos para o embed
     const fields = [];
     let zipContentField = '';
     let isZipContent = false;
 
-    // Organiza os campos conforme o conteúdo do info.txt
     lines.forEach((line, index) => {
         const [name, value] = line.split(': ');
         
@@ -62,10 +60,8 @@ const showInfoEmbed = async (channel, interaction) => {
             // Campos padrão
             fields.push({ name: name.trim(), value: value.trim(), inline: false });
         } else if (line.includes('Conteúdo do Zip:')) {
-            // Marca o início do conteúdo do ZIP
             isZipContent = true;
         } else if (isZipContent) {
-            // Adiciona o conteúdo do ZIP com limite de 10 arquivos
             if (index < 10) {
                 zipContentField += `- ${line.trim()}\n`;
             } else if (index === 10) {
@@ -80,7 +76,7 @@ const showInfoEmbed = async (channel, interaction) => {
 
     const embed = new EmbedBuilder()
         .setTitle(`Informações do Upload - ${channel.name}`)
-        .setColor(getRandomColor())  // Cor aleatória para o embed
+        .setColor(getRandomColor()) 
         .addFields(fields);
 
     await interaction.reply({ embeds: [embed] });
@@ -378,7 +374,7 @@ clients[0].on('interactionCreate', async (interaction) => {
         let chunksDownloaded = 0;
         const chunksPerBot = Math.ceil(totalChunks / clients.length);
     
-        const downloadColor = getRandomColor(); // Cor aleatória para o embed de download
+        const downloadColor = getRandomColor(); 
         const downloadEmbed = new EmbedBuilder()
             .setTitle('Download em Andamento')
             .setColor(downloadColor)
@@ -446,7 +442,7 @@ clients[0].on('interactionCreate', async (interaction) => {
                 const totalSizeGB = (totalSize / (1024 ** 3)).toFixed(2);
                 downloadEmbed.setTitle('Download Concluído')
                     .setDescription('Todos os chunks foram unidos!')
-                    .setColor(downloadColor) // Mantém a cor original
+                    .setColor(downloadColor) 
                     .spliceFields(0, 1, { name: 'Progresso Geral', value: '100% concluído' })
                     .addFields(
                         { name: 'Total de Chunks', value: `${chunkFiles.length}`, inline: true },
