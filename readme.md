@@ -63,7 +63,7 @@ embedColors:
   - "#1ABC9C"
   - "#1ABC9C"
   - "#09f5a0"
-
+```
  # Importante: O valor de CHUNK_SIZE é crucial para o desempenho do bot. Verifique a categoria do seu servidor Discord e ajuste de acordo.
 
  Executando o Bot
