@@ -75,19 +75,19 @@ npm install
 ```
 Este comando irá ler o arquivo package.json na raiz do seu projeto e instalar todas as dependências listadas.
 
-Passo 2: Iniciar o Bot
-Após a instalação das dependências, você pode iniciar o bot com o seguinte comando:
+### Passo 2: Iniciar o Bot
+### Após a instalação das dependências, você pode iniciar o bot com o seguinte comando:
 
-bash
-Copy code
+```bash
 node bot.js
-Substitua bot.js pelo nome do arquivo principal do seu bot, se necessário. Isso iniciará o bot, e ele se conectará ao Discord usando as informações e tokens configurados no arquivo config.yaml.
+```
+#### Substitua bot.js pelo nome do arquivo principal do seu bot, se necessário. Isso iniciará o bot, e ele se conectará ao Discord usando as informações e tokens configurados no arquivo config.yaml.
 
-Observações
+# Observações
 A primeira execução: Pode demorar alguns momentos na primeira execução, pois o bot estará se conectando ao Discord e inicializando.
 Erros de permissão: Se você encontrar erros relacionados a permissões, verifique se o bot tem as permissões corretas configuradas no portal de desenvolvedores do Discord e se ele foi adicionado ao servidor com as permissões necessárias.
-Comandos Disponíveis
-Aqui está uma lista dos comandos disponíveis no bot e suas descrições:
+# Comandos Disponíveis
+## Aqui está uma lista dos comandos disponíveis no bot e suas descrições:
 
 /ping: Responde com "Pong!".
 /delete: Deleta um canal e a pasta correspondente.
@@ -98,5 +98,5 @@ Aqui está uma lista dos comandos disponíveis no bot e suas descrições:
 /download: Faz o download de todos os chunks de um canal.
 /info: Mostra as informações do arquivo info.txt de um canal.
 /help: Mostra uma lista de comandos e suas descrições.
-Contribuições
-Sinta-se à vontade para contribuir para este projeto. Se você encontrar algum bug ou tiver uma sugestão, abra uma issue ou um pull request.
+# Contribuições
+## Sinta-se à vontade para contribuir para este projeto. Se você encontrar algum bug ou tiver uma sugestão, abra uma issue ou um pull request.
