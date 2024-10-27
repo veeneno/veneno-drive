@@ -66,13 +66,14 @@ embedColors:
 ```
  # Importante: O valor de CHUNK_SIZE é crucial para o desempenho do bot. Verifique a categoria do seu servidor Discord e ajuste de acordo.
 
- Executando o Bot
-Passo 1: Instalando Dependências
-Antes de iniciar o bot, você precisa instalar as dependências necessárias. No terminal, navegue até a pasta onde seu bot está localizado e execute o seguinte comando:
+ ## Executando o Bot
+### Passo 1: Instalando Dependências
+### Antes de iniciar o bot, você precisa instalar as dependências necessárias. No terminal, navegue até a pasta onde seu bot está localizado e execute o seguinte comando:
 
-bash
+```bash
 Copy code
 npm install
+```
 Este comando irá ler o arquivo package.json na raiz do seu projeto e instalar todas as dependências listadas.
 
 Passo 2: Iniciar o Bot
