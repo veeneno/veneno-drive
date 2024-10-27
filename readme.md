@@ -1,6 +1,6 @@
 # By veneno
 
-# README do Drive no Discord
+# Drive no Discord
 
 Este é um bot para Discord que permite fazer upload e download de arquivos, compartilhar links de chunks, e muito mais. Siga as instruções abaixo para configurar e usar o bot.
 
@@ -26,8 +26,6 @@ Este é um bot para Discord que permite fazer upload e download de arquivos, com
 Repita os passos acima para criar quantos bots você precisar (no mínimo dois: um principal e um auxiliar).
 
 ## Configurando o arquivo `config.yaml`
-
-Crie um arquivo chamado `config.yaml` na raiz do seu projeto com o seguinte template:
 
 ```yaml
 # Tokens dos bots
@@ -84,8 +82,9 @@ node bot.js
 #### Substitua bot.js pelo nome do arquivo principal do seu bot, se necessário. Isso iniciará o bot, e ele se conectará ao Discord usando as informações e tokens configurados no arquivo config.yaml.
 
 # Observações
-A primeira execução: Pode demorar alguns momentos na primeira execução, pois o bot estará se conectando ao Discord e inicializando.
-Erros de permissão: Se você encontrar erros relacionados a permissões, verifique se o bot tem as permissões corretas configuradas no portal de desenvolvedores do Discord e se ele foi adicionado ao servidor com as permissões necessárias.
+- A primeira execução: Pode demorar alguns momentos na primeira execução, pois o bot estará se conectando ao Discord e inicializando.
+- Se os comandos nao incializarem de primeira desligue o bot e ligue denovo
+- Erros de permissão: Se você encontrar erros relacionados a permissões, verifique se o bot tem as permissões corretas configuradas no portal de desenvolvedores do Discord e se ele foi adicionado ao servidor com as permissões necessárias.
 # Comandos Disponíveis
 ## Aqui está uma lista dos comandos disponíveis no bot e suas descrições:
 
