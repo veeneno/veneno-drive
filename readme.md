@@ -89,14 +89,14 @@ Erros de permissão: Se você encontrar erros relacionados a permissões, verifi
 # Comandos Disponíveis
 ## Aqui está uma lista dos comandos disponíveis no bot e suas descrições:
 
-/ping: Responde com "Pong!".
-/delete: Deleta um canal e a pasta correspondente.
-/upload: Seleciona e faz o upload de um arquivo específico na pasta ./upload.
-/uploadall: Faz o upload de todos os arquivos .zip da pasta ./upload.
-/compartilhar: Cria um arquivo com os links de todos os chunks de um canal.
-/dlon: Baixa arquivos a partir de um arquivo de links na pasta shared.
-/download: Faz o download de todos os chunks de um canal.
-/info: Mostra as informações do arquivo info.txt de um canal.
-/help: Mostra uma lista de comandos e suas descrições.
+- /ping: Responde com "Pong!".
+- /delete: Deleta um canal e a pasta correspondente.
+- /upload: Seleciona e faz o upload de um arquivo específico na pasta ./upload.
+- /uploadall: Faz o upload de todos os arquivos .zip da pasta ./upload.
+- /compartilhar: Cria um arquivo com os links de todos os chunks de um canal.
+- /dlon: Baixa arquivos a partir de um arquivo de links na pasta shared.
+- /download: Faz o download de todos os chunks de um canal.
+- /info: Mostra as informações do arquivo info.txt de um canal.
+- /help: Mostra uma lista de comandos e suas descrições.
 # Contribuições
 ## Sinta-se à vontade para contribuir para este projeto. Se você encontrar algum bug ou tiver uma sugestão, abra uma issue ou um pull request.
