@@ -1,0 +1,22 @@
+{
+  "name": "botup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "axios": "^1.7.7",
+    "discord.js": "^14.16.3",
+    "fs-extra": "^11.2.0",
+    "js-yaml": "^4.1.0",
+    "node-fetch": "^3.3.2",
+    "unzip": "^0.1.11",
+    "unzipper": "^0.12.3"
+  }
+}

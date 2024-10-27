@@ -1,0 +1,33 @@
+# Tokens dos bots
+tokens:
+  - "TOKEN_DO_BOT_PRINCIPAL" # Token do bot principal
+  - "TOKEN_DO_BOT_AUXILIAR"   # Token do bot auxiliar 1
+  - "TOKEN_DO_BOT_AUXILIAR"   # Token do bot auxiliar 2
+  # Adicione mais tokens conforme necessário
+
+# IDs do cliente e do servidor
+clientId: "ID_DO_BOT"
+guildId: "ID_DO_SERVIDOR"
+progressChannelId: "ID_DO_CHAT_DE_COMANDOS"
+
+# Configurações de uso de RAM
+MAX_RAM_USAGE: 2  # 6 GB
+
+# CHUNK SIZE IMPORTANTE
+# PERFORMANCE MAXIMA***
+# server sem boost - 7
+# server nivel 1 - 24
+# server nivel 2 - 49
+# server nivel 3 - 99
+CHUNK_SIZE: 7 # MB 
+
+# HEX CODES para Cores para embeds (cada embed tera uma cor aleatoria)
+embedColors:
+  - "#FFFFFF"
+  - "#9B59B6"
+  - "#3498DB"
+  - "#dfe9f8"
+  - "#F1C40F"
+  - "#1ABC9C"
+  - "#1ABC9C"
+  - "#09f5a0"
