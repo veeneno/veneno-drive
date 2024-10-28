@@ -42,9 +42,10 @@ clientId: "ID_DO_BOT"
 guildId: "ID_DO_SERVIDOR"
 progressChannelId: "ID_DO_CHAT_DE_COMANDOS"
 
-# Configurações de uso de RAM e DELAY
-MAX_RAM_USAGE: 6  # 6 GB
+# Configurações de uso de RAM e DELAY e DOWNLOAD
+MAX_RAM_USAGE: 2  # 6 GB
 UPLOAD_DELAY: 3 # SEGUNDOS
+MAX_DL: 8 
 
 # CHUNK SIZE IMPORTANTE
 # PERFORMANCE MAXIMA***
