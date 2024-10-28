@@ -13,6 +13,7 @@ const clientId = config.clientId;
 const guildId = config.guildId;
 const progressChannelId = config.progressChannelId;
 const CHUNK_SIZE = config.CHUNK_SIZE * 1024 * 1024; 
+const UPLOAD_DELAY = config.UPLOAD_DELAY;
 const MAX_RAM_USAGE = config.MAX_RAM_USAGE * 1024 * 1024 * 1024;
 const embedColors = config.embedColors;
 
