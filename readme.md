@@ -27,7 +27,7 @@ Repita os passos acima para criar quantos bots você precisar (necessario 1 prin
 
 ## Configurando o arquivo 
 `config.yaml`
-### eu uso 7 bots auxiliares e 3 segundos de delay no upload tendo 100mb de upload faça uma estimativa com base no seu upload na quantidade de bots e no delay
+### eu uso 7 bots auxiliares e 3 segundos de delay e 24mb chunk, no upload tendo 100mb, faça uma estimativa com base no seu upload na quantidade de bots e no delay, caso utilizar pouco delay e muitos bots pode resultar na queda da internet no pc por 2 a 3 minutos.
 meu 
 ```yaml
 # Tokens dos bots
