@@ -23,12 +23,13 @@ Este é um bot para Discord que permite fazer upload e download de arquivos, com
 4. Em "Token", clique em "Copy" para copiar o token do bot. **Nunca compartilhe este token!**
 5. Vá para "OAuth2" no menu à esquerda e adicione as permissões necessárias, como "Administrator", para que o bot funcione corretamente.
 
-Repita os passos acima para criar quantos bots você precisar (no mínimo dois: um principal e um auxiliar).
+Repita os passos acima para criar quantos bots você precisar (necessario 1 principal e 1 auxiliar) (RECOMENDADO NO MAXIMO 7 bots auxiliares + 1 principal)
 
 ## Configurando o arquivo `config.yaml`
 
 ```yaml
 # Tokens dos bots
+# RECOMENDADO NO MAXIMO 7 bots auxiliares + 1 principal
 tokens:
   - "TOKEN_DO_BOT_PRINCIPAL" # Token do bot principal
   - "TOKEN_DO_BOT_AUXILIAR"   # Token do bot auxiliar 1
