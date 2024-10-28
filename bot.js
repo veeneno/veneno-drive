@@ -16,6 +16,26 @@ const CHUNK_SIZE = config.CHUNK_SIZE * 1024 * 1024;
 const MAX_RAM_USAGE = config.MAX_RAM_USAGE * 1024 * 1024 * 1024;
 const embedColors = config.embedColors;
 
+const createDirectoryIfNotExists = (dirPath) => {
+    if (!fs.existsSync(dirPath)) {
+        fs.mkdirSync(dirPath, { recursive: true });
+        console.log(`Diretório criado: ${dirPath}`);
+    } else {
+        console.log(`Diretório já existe: ${dirPath}`);
+    }
+};
+
+const directories = [
+    path.join(__dirname, 'download'),
+    path.join(__dirname, 'downloadtemp'),
+    path.join(__dirname, 'upload'),
+    path.join(__dirname, 'uploadtemp'),
+    path.join(__dirname, 'shared'),
+    path.join(__dirname, 'ups')
+];
+
+directories.forEach(createDirectoryIfNotExists);
+
 const clients = tokens.map(token => new Client({ intents: [GatewayIntentBits.Guilds] }));
 
 const getRandomColor = () => embedColors[Math.floor(Math.random() * embedColors.length)];
