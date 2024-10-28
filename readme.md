@@ -25,11 +25,12 @@ Este é um bot para Discord que permite fazer upload e download de arquivos, com
 
 Repita os passos acima para criar quantos bots você precisar (necessario 1 principal e 1 auxiliar) (RECOMENDADO NO MAXIMO 7 bots auxiliares + 1 principal)
 
-## Configurando o arquivo `config.yaml`
-
+## Configurando o arquivo 
+`config.yaml`
+### eu uso 7 bots auxiliares e 3 segundos de delay no upload tendo 100mb de upload faça uma estimativa com base no seu upload na quantidade de bots e no delay
+meu 
 ```yaml
 # Tokens dos bots
-# RECOMENDADO NO MAXIMO 7 bots auxiliares + 1 principal
 tokens:
   - "TOKEN_DO_BOT_PRINCIPAL" # Token do bot principal
   - "TOKEN_DO_BOT_AUXILIAR"   # Token do bot auxiliar 1
