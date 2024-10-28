@@ -617,10 +617,7 @@ clients[0].on('interactionCreate', async interaction => {
         }).catch(err => {
             console.error(`Erro ao logar o Bot ${index + 1}:`, err);
         });
+        
     }));
-
-    clients[0].once('ready', async () => {
-        console.log(`Bot principal (${clients[0].user.tag}) está pronto`);
-        await registerCommands();
-    });
+    await registerCommands();
 })();
