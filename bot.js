@@ -151,6 +151,8 @@ const distributeChunksToBots = async (chunkFiles, channel, message, embed) => {
     const totalChunks = chunkFiles.length;
     const chunksPerBot = Math.ceil(totalChunks / clients.length);
     let chunksSent = 0;
+    const maxRetries = 3; // Define o número máximo de tentativas para cada chunk
+    let retryChunks = [];  // Armazena chunks que falharam para retry
 
     console.log("Iniciando a distribuição de chunks entre os bots...");
 
@@ -159,30 +161,59 @@ const distributeChunksToBots = async (chunkFiles, channel, message, embed) => {
         const botChannel = await bot.channels.fetch(channel.id);
 
         for (const chunkFile of botChunks) {
-            try {
-                console.log(`Bot ${i + 1} está enviando o chunk ${chunkFile} para o canal ${channel.name}`);
+            let success = false;
+            let attempts = 0;
 
-                if (checkMemoryUsage()) {
-                    await botChannel.send({ files: [chunkFile] });
-                } else {
-                    const fileStream = fs.createReadStream(chunkFile);
-                    await botChannel.send({ files: [{ attachment: fileStream, name: path.basename(chunkFile) }] });
-                    fileStream.close();
+            while (!success && attempts < maxRetries) {
+                try {
+                    console.log(`Bot ${i + 1} está enviando o chunk ${chunkFile} (Tentativa ${attempts + 1}) para o canal ${channel.name}`);
+
+                    if (checkMemoryUsage()) {
+                        await botChannel.send({ files: [chunkFile] });
+                    } else {
+                        const fileStream = fs.createReadStream(chunkFile);
+                        await botChannel.send({ files: [{ attachment: fileStream, name: path.basename(chunkFile) }] });
+                        fileStream.close();
+                    }
+
+                    fs.unlinkSync(chunkFile);
+                    chunksSent++;
+                    success = true;
+
+                    const progressPercentage = ((chunksSent / totalChunks) * 100).toFixed(1);
+                    embed.spliceFields(4, 1, { name: 'Progresso Geral', value: `${progressPercentage}% concluído` });
+                    await message.edit({ embeds: [embed] });
+
+                    await new Promise(resolve => setTimeout(resolve, UPLOAD_DELAY * 1000));
+                } catch (error) {
+                    attempts++;
+                    console.error(`Erro ao bot ${i + 1} enviar chunk: ${chunkFile}, tentativa ${attempts}`, error);
+                    if (attempts >= maxRetries) {
+                        retryChunks.push(chunkFile);  // Adiciona o chunk à lista de retry se atingir o limite de tentativas
+                    }
                 }
-
-                fs.unlinkSync(chunkFile);  
-                chunksSent++;
-                const progressPercentage = ((chunksSent / totalChunks) * 100).toFixed(1);
-                embed.spliceFields(4, 1, { name: 'Progresso Geral', value: `${progressPercentage}% concluído` });
-                await message.edit({ embeds: [embed] });
-
-                await new Promise(resolve => setTimeout(resolve, UPLOAD_DELAY * 1000));
-            } catch (error) {
-                console.error(`Erro ao bot ${i + 1} enviar chunk: ${chunkFile}`, error);
             }
         }
         console.log(`Bot ${i + 1} concluiu o envio dos chunks.`);
     }));
+
+    // Tentativa de reenvio dos chunks que falharam
+    if (retryChunks.length > 0) {
+        console.log("Tentando reenviar chunks que falharam...");
+        for (const chunkFile of retryChunks) {
+            try {
+                const fileStream = fs.createReadStream(chunkFile);
+                await channel.send({ files: [{ attachment: fileStream, name: path.basename(chunkFile) }] });
+                fileStream.close();
+                fs.unlinkSync(chunkFile);  // Deleta o arquivo se o envio for bem-sucedido
+                console.log(`Chunk reenvio concluído com sucesso: ${chunkFile}`);
+            } catch (error) {
+                console.error(`Erro ao reenviar o chunk: ${chunkFile}`, error);
+            }
+        }
+    }
+
+    console.log("Todos os chunks foram processados.");
 };
 
 const uploadFile = async (fileName, interaction, progressChannelId) => {
