@@ -151,8 +151,8 @@ const distributeChunksToBots = async (chunkFiles, channel, message, embed) => {
     const totalChunks = chunkFiles.length;
     const chunksPerBot = Math.ceil(totalChunks / clients.length);
     let chunksSent = 0;
-    const maxRetries = 3; // Define o número máximo de tentativas para cada chunk
-    let retryChunks = [];  // Armazena chunks que falharam para retry
+    const maxRetries = 3;
+    let retryChunks = [];  
 
     console.log("Iniciando a distribuição de chunks entre os bots...");
 
@@ -189,7 +189,7 @@ const distributeChunksToBots = async (chunkFiles, channel, message, embed) => {
                     attempts++;
                     console.error(`Erro ao bot ${i + 1} enviar chunk: ${chunkFile}, tentativa ${attempts}`, error);
                     if (attempts >= maxRetries) {
-                        retryChunks.push(chunkFile);  // Adiciona o chunk à lista de retry se atingir o limite de tentativas
+                        retryChunks.push(chunkFile);
                     }
                 }
             }
@@ -197,7 +197,6 @@ const distributeChunksToBots = async (chunkFiles, channel, message, embed) => {
         console.log(`Bot ${i + 1} concluiu o envio dos chunks.`);
     }));
 
-    // Tentativa de reenvio dos chunks que falharam
     if (retryChunks.length > 0) {
         console.log("Tentando reenviar chunks que falharam...");
         for (const chunkFile of retryChunks) {
@@ -205,7 +204,7 @@ const distributeChunksToBots = async (chunkFiles, channel, message, embed) => {
                 const fileStream = fs.createReadStream(chunkFile);
                 await channel.send({ files: [{ attachment: fileStream, name: path.basename(chunkFile) }] });
                 fileStream.close();
-                fs.unlinkSync(chunkFile);  // Deleta o arquivo se o envio for bem-sucedido
+                fs.unlinkSync(chunkFile);  
                 console.log(`Chunk reenvio concluído com sucesso: ${chunkFile}`);
             } catch (error) {
                 console.error(`Erro ao reenviar o chunk: ${chunkFile}`, error);
